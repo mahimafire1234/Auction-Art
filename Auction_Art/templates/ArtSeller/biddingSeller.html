@@ -1,0 +1,54 @@
+{% extends 'dashboard.html' %}
+{%block content %}
+
+<title>Dashboard for displaying created arts</title>
+
+<div class="d-flex justify-content-center">
+    <div class="col-lg-8 col-sm-10 col-12" id="dashboard">
+        <div class="col-lg-6 col-sm-6 col-6 active" id="myarts" >
+            <a href="/display_art_seller" class="">My arts</a>
+        </div>
+        <div class="col-lg-6 col-sm-6 col-6" id="biddings" >
+            <a href="">Biddings</a>
+        </div>
+    </div>
+</div>
+
+<div class="container col-lg-10 table-responsive" id="displayarts">
+<!--    table displaying the arts for seller admin-->
+    <h1 style="text-align:center;font-family: 'Balsamiq Sans', cursive;">Biddings for art</h1>
+<!--    form to add new art-->
+    <form action="create_art" method="POST" class="d-flex justify-content-end ">
+        {% csrf_token %}
+        <input type="submit" value="Add Art" class="btn btn-success col-lg-2">
+
+    </form>
+<!--    table displaying added arts-->
+    <table border="5" class="table  table-bordered my-3 mx-2 col-lg-12">
+    <thead class="thead thead-dark">
+    <tr>
+        <th>S.N</th>
+        <th>product id</th>
+        <th>Product Name</th>
+        <th>User id</th>
+        <th>User Name</th>
+        <th>Bidding amount</th>
+
+    </tr>
+    </thead>
+    {% for a in win %}
+    <tr>
+        <td>{{a.auction_id}}</td>
+        <td>{{a.product_id_id}}</td>
+        <td>{{a.product_id.product_name}}</td>
+        <td>{{a.user_id_id}}</td>
+        <td>{{a.user_id.email}}</td>
+        <td>{{a.bidding_amount}}</td>
+
+
+    {% endfor%}
+</table>
+</div>
+
+
+{% endblock  %}

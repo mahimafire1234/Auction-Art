@@ -1,0 +1,85 @@
+/* navbar css */
+#navbar1{
+    height: 100px;
+    background-color: black;
+    border: 1px  gray;
+    box-shadow: 3px 3px 3px 2px grey;
+}
+
+/* brandname */
+#brandname{
+    font-family: 'Bad Script', cursive;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+.a{
+    font-family: 'Balsamiq Sans', cursive;    font-size:20px
+}
+.a:hover{
+    background-color: grey;
+}
+
+#collapsenav{
+    background-color: black;
+    margin-top: -12px;
+}
+
+/* div for search */
+#seconddiv{
+    /* height: 1000vh; */
+
+    margin-top: 100px;
+}
+#searchinput{
+    height:40px;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+#h1forart{
+
+    margin-top: 40px;
+}
+
+#paintings{
+    margin-top: 60px;
+}
+/* css for  seller */
+#imgforsell,#h1forsell{
+    float: left;
+    display: block;
+}
+#imgforsell{
+    margin-top: 60px;margin-right: 50px;
+}
+#h1forsell>h1{
+    text-align:center;font-family: 'Merienda', cursive;margin-top: 90px;font-size: 70px;
+}
+#h1forsell>p{
+    text-align:center;font-family: 'Merienda', cursive;margin-top: 10px;font-size: 20px;
+}
+#h1forsell{
+    margin-top: 50px;
+}
+/* css for  buyer */
+
+#h1forbuy>h1{
+    text-align:center;font-family: 'Merienda', cursive;margin-top: 90px;font-size: 70px;
+}
+#h1forbuy>p{
+    text-align:center;font-family: 'Merienda', cursive;margin-top: 10px;font-size: 20px;
+}
+#h1forbuy,#imgforbuy{
+    float: left;
+    display: block;
+}
+#divforbuy{
+    margin-top: 760px;
+    background-color: aquamarine;
+}
+#h1forbuy{
+    margin-top: 50px;
+    margin-right: 100px;
+
+}

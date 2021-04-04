@@ -1,0 +1,40 @@
+{%extends 'dashboard.html'%}
+{%block content%}
+{%load static%}
+<div class="container1 col-lg-12 col-sm-12 col-md-12 col-12 d-flex justify-content-center" style="margin-top:100px">
+     <div class="col-lg-7 col-md-8 col-sm-10 col-12 my-4" id="container" >
+         <h5 style="text-align: center;margin-top: 30px;">Fill in the details for your art.</h5>
+         <form class="form-group mx-5 my-4" method="POST" action="create_art" enctype="multipart/form-data" >
+             {% csrf_token %}
+
+             <!--             name of the art-->
+             <label class="lead mx-1 my-1">Art Name:</label>
+             <input class="form-control  lead mx-1 my-1  " type="text" name="product_name" value="">
+
+             <!--           description for the art  -->
+             <label class="lead mx-1 my-1">Description:</label>
+             <textarea class="form-control  lead mx-1 my-1"  name="product_description"></textarea>
+
+             <!--             image of the art-->
+             <label class="lead mx-1 my-1">  Image:</label>
+             <input class="lead mx-1 my-1 "  type="file"  name="image" value=""><br>
+
+
+             <!--             starting price of the art-->
+             <label class="lead mx-1 my-1"> Minimum price:</label>
+             <input class="form-control  lead mx-1 my-1 "  type="number"  name="minimum_price" value="">
+
+             <label class="lead mx-1 my-1"> Bid Start Date:</label>
+             <input class="form-control  lead mx-1 my-1 "  type="date"  name="bidStartDate">
+
+             <label class="lead mx-1 my-1"> Bid End Date:</label>
+             <input class="form-control  lead mx-1 my-1 "  type="date"  name="bidEndDate">
+
+             <br>
+
+<!--             submit button-->
+             <input  class="btn btn-dark my-4 form-control" type="submit" value="Add Art">
+         </form>
+     </div>
+</div>
+{%endblock%}

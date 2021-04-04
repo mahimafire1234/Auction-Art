@@ -1,0 +1,37 @@
+#displayarts{
+margin-top:50px
+}
+#dashboard{
+background-color:whitesmoke;
+margin-top:120px;
+height:80px;
+}
+#myarts{
+background-color:rgb(153, 179, 222);
+border:2px solid gray;
+height:80px;
+float:left;
+display:block;
+padding :20px;
+text-align:center;
+cursor:pointer;
+}
+#myarts:hover{
+background-color:grey;
+}
+
+#biddings{
+background-color:rgb(153, 179, 222);
+height:80px;
+float:left;
+display:block;
+border:2px gray;
+padding :20px;
+text-align:center;
+border:2px solid gray;
+cursor:pointer;
+
+}
+#biddings:hover{
+background-color:grey;
+}

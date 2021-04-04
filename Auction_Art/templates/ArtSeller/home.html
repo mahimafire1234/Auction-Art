@@ -1,0 +1,42 @@
+{% extends 'layoutBidder.html' %}
+{%block content %}
+<title>Home for displaying created arts</title>
+{% if product%}
+ <div id="paintings" class="col-lg-12 " style=" margin-top:150px">
+     <h3 style="text-align:center; margin-top:20px; margin-bottom:40px">Arts that have been out for auction.</h3>
+     <div class="card-group col-lg-6 col-9 d-flex justify-content-center" >
+         {% for ad in product%}
+
+         <div class="card col-lg-3 mx-3 " >
+             {% load static%}
+            <img src="{%static '/Images/'%}{{ad.image}}" class="img-responsive col-lg-12 col-sm-12" height="400px">
+             <div class="card-header"style="font-family: DomaineDisplay,'BebasNeueRegular';text-align: center;">{{ad.product_name}}</div>
+             <div class="card-body">
+                 <h6>About:{{ad.product_description}}</h6>
+                 <h6> Minimum price:{{ad.minimum_price}}</h6>
+
+                 {% if request.session.id%}
+                 <form action="biddings_view/{{ad.product_id}}" method="POST">
+                     {%csrf_token%}
+                     <input class="btn btn-primary" value="Biddings" type="submit">
+                 </form>
+                {%else%}
+                 <form action="/view_registration_buyer" method="POST">
+                    {%csrf_token%}
+                    <input class="btn btn-primary" value="Register First" type="submit">
+                </form>
+                {%endif%}
+             </div>
+         </div>
+         {% endfor%}
+
+     </div>
+ </div>
+{% else%}
+<div style="margin-top:150px;" class="col-6 d-flex justify-content-center">
+    <div style="background-color:whitesmoke;">
+        <h3>No arts created yet!!!</h3>
+    </div>
+</div>
+{% endif %}
+{% endblock  %}

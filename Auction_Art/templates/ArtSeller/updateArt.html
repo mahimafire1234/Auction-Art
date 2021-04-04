@@ -1,0 +1,39 @@
+{%extends 'dashboard.html'%}
+{%block content%}
+{%load static%}
+<div class="container1 col-lg-12 col-sm-12 col-md-12 col-12 d-flex justify-content-center" style="margin-top:100px">
+     <div class="col-lg-7 col-md-8 col-sm-10 col-12 my-4" id="container" >
+         <h5 style="text-align: center;margin-top: 30px;">Fill in the details for your art.</h5>
+         <form class="form-group mx-5 my-4" method="POST" action="/update/{{product.product_id}}" enctype="multipart/form-data" >
+             {% csrf_token %}
+
+             <!--             name of the art-->
+             <label class="lead mx-1 my-1">Art Name:</label>
+             <input class="form-control  lead mx-1 my-1  " type="text" name="product_name" value={{product.product_name}}>
+
+             <!--           description for the art  -->
+             <label class="lead mx-1 my-1">Description:</label>
+             <input class="form-control  lead mx-1 my-1"  type="text"  name="product_description" value={{product.product_description}}>
+
+             <!--             image of the art-->
+             <label class="lead mx-1 my-1">  Image:</label>
+             <input class="lead mx-1 my-1 "  type="file"  name="image" value=""><br>
+             <label>Image url:{{art.Image}}</label>
+             <br>
+
+             <!--             starting price of the art-->
+             <label class="lead mx-1 my-1"> Price:</label>
+             <input class="form-control  lead mx-1 my-1 "  type="text"  name="minimum_price" value="{{product.minimum_price}}">
+
+             <label class="lead mx-1 my-1"> Bid Start Date:</label>
+             <input class="form-control  lead mx-1 my-1 "  type="date"  name="bidStartDate" value="{{product.bidStartDate}}">
+
+             <label class="lead mx-1 my-1"> Bid End Date:</label>
+             <input class="form-control  lead mx-1 my-1 "  type="date"  name="bidEndDate" value="{{product.bidEndDate}}">
+
+<!--             submit button-->
+             <input  class="btn btn-dark my-4 form-control" type="submit" value="Update Art">
+         </form>
+     </div>
+</div>
+{%endblock%}

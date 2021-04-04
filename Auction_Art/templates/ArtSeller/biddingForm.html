@@ -1,0 +1,47 @@
+{%extends 'layoutBidder.html'%}
+{%block content%}
+{%load static%}
+<title>Bidding form</title>
+<div class="container1 col-lg-12 col-sm-12 col-md-12 col-12 d-flex justify-content-center" style="margin-top:100px">
+     <div class="col-lg-7 col-md-10 col-sm-10 col-12 my-4" id="container" >
+         <div>
+             {%for m in messages%}
+             <div class="col-12 " style="background-color:white;height:150px;text-align:center;border:2px solid red;padding:30px;font-size:20px;"><span >{{m}}</span>
+             <form action="" method="POST">
+                 {%csrf_token%}
+                 <input class="btn btn-primary col-5" value="Ok" type="submit" style="margin-top:20px;">
+             </form>
+             </div>
+             {%endfor%}
+         </div>
+         <h6 class="lead my-3" style="text-align:center">Fill details for your bid.</h6>
+         {% for ad in product%}
+            <div class="col-12 col-sm-12 d-flex justify-content-center my-3">
+                 <img src="{%static '/Images/'%}{{ad.image}}" name="image" class="img-responsive col-10 col-sm-10 col-lg-8 col-sm-12" height="400px">
+             </div>
+             <div style="text-align:center;" >
+
+
+             <form action="/create_bid" method="POST" class="form-group">
+                {%csrf_token%}
+                 <label>Product id:</label>
+                 <input class="my-2 " value="{{ad.product_id}}" name="product_id" readonly><br>
+                 <label>User id:</label>
+                 <input class="my-2" value="{{request.session.id}}" name="user_id" readonly><br>
+                 <label class="my-2">Product Name :&nbsp; {{ad.product_name}}</label><br>
+                 <label class="my-2">Product Description :&nbsp; {{ad.product_description}}</label><br>
+                 <label class="my-2">Minimum Price  :&nbsp; {{ad.minimum_price}}</label><br>
+                 <label class="my-2" style="text-align:center;">Bid Amount:</label><br>
+                 <input type="number" class="form col-8" name="bidding_amount" value=""><br>
+
+                    <!--  submit button--><br>
+                 <input value="Confirm Bid" type="Submit" class="btn btn-success col-6 my-2">
+             </form>
+             </div>
+
+
+         {%endfor%}
+
+     </div>
+</div>
+{%endblock%}

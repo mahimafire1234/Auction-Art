@@ -1,0 +1,36 @@
+{%extends 'dashboard.html'%}
+{%block content%}
+{%load static%}
+<div class="container1 col-lg-12 col-sm-12 col-md-12 col-12 d-flex justify-content-center" style="margin-top:100px">
+     <div class="col-lg-7 col-md-8 col-sm-10 col-12 my-4" id="container" >
+                  {% for ad in product%}
+         <form method="POST" action="/create_auction/{{ad.product_id}}" enctype="multipart/form-data">
+             {%csrf_token%}
+            <div class="col-lg-12 d-flex justify-content-center my-3">
+                 <img src="{%static '/Images/'%}{{ad.image}}" name="image" class="img-responsive col-lg-8 col-sm-12" height="400px">
+             </div>
+             <div style="text-align:center;">
+                 <Label class="lead my-2 mx-2">Product id:</Label><br>
+                <input type="text" class="form col-10 " id="starttime" name="product_id" value="{{ad.product_id}}" readonly>
+
+                 <label class="lead my-2 mx-2">Product name:</label><br>
+                <input type="text" class="form col-10 " id="starttime" name="product_name" value="{{ad.product_name}}" readonly>
+
+<!--                 <label class="lead my-2 mx-2">Number of Bidding:</label><br>-->
+<!--                <input type="number" class="form col-10 " id="starttime" name="" value="">-->
+
+                 <label class="lead my-2 mx-2">Bidding Start Date:</label><br>
+                <input type="datetime-local" class="form col-10 " id="bidStartDate" name="bidStartDate" value="">
+
+                 <label class="lead my-2 mx-2">Bidding end date:</label><br>
+                <input type="datetime-local" class="form col-10" id="endtime" name="bidEndDate" value="">
+
+                 <input value="Confirm Auction" type="submit" class="btn btn-success my-3">
+             </div>
+
+         </form>
+         {%endfor%}
+
+     </div>
+</div>
+{%endblock%}

@@ -1,0 +1,38 @@
+{% extends 'layoutBidder.html' %}
+{%block content %}
+<title>Home for displaying created arts</title>
+{% if product%}
+<div class="container1 col-lg-12 col-sm-12 col-md-12 col-12 d-flex justify-content-center" style="margin-top:150px">
+    {% for ad in product%}
+    <form action="/view_bidding_form/{{ad.product_id}}" method="POSt">
+        {%csrf_token%}
+        <input class="btn btn-primary" value="Make a Bid" type="submit">
+    </form>
+
+</div>
+<div class="container1 col-lg-12 col-sm-12 col-md-12 col-12 d-flex justify-content-center" style="margin-top:50px">
+
+     <div class="col-lg-7 col-md-8 col-sm-10 col-12 my-4" id="container" >
+         <h3 style="text-align:center; margin-top:20px; margin-bottom:40px">Biddings.</h3>
+
+        <div class="card-group col-lg-12 my-3" >
+            <div class="card col-lg-3 mx-3" >
+                {% load static%}
+                <img src="{%static '/Images/'%}{{ad.image}}" class="img-responsive col-lg-12 col-sm-12" height="400px">
+                <div class="card-header"style="font-family: DomaineDisplay,'BebasNeueRegular';text-align: center;">{{ad.product_name}}</div>
+                <div class="card-body">
+                    <h6>About:{{ad.product_description}}</h6>
+                    <h6> Minimum price:{{ad.minimum_price}}</h6>
+                </div>
+            </div>
+         {% endfor%}
+         </div>
+</div>
+{% else%}
+<div style="margin-top:150px;" class="col-6 d-flex justify-content-center">
+    <div style="background-color:whitesmoke;">
+        <h3>No arts created yet!!!</h3>
+    </div>
+</div>
+{% endif %}
+{% endblock  %}

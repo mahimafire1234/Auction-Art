@@ -1,0 +1,33 @@
+from django.urls import path
+from Product import views
+
+urlpatterns=[
+    path("",views.displayHomePage),
+    path("create_art",views.createArt),
+    path("display_messages",views.display_art_message_success),
+    path("display_art_seller",views.display_arts),
+    path("delete/<int:product_id>",views.delete_art_seller),
+    path("delete_message",views.delete_message),
+    path("update/<int:product_id>",views.edit_art),
+    path("update_message",views.update_message),
+    path("view_auction_form/<int:product_id>",views.view_auction_form),
+    path("home_arts",views.home_arts),
+    path("create_auction/<int:product_id>",views.create_auction),
+    path("message_auction",views.auction_message),
+    path("biddings_view/<int:product_id>",views.view_biddings),
+    path("view_bidding_form/<int:product_id>",views.view_bidding_form),
+    path("view_registration_buyer",views.buyer_registration),
+    path("view_success_reg_message",views.success_registration),
+    path("create_buyer_registration",views.buyer_create_Registration),
+    path("create_bid",views.createbid),
+    path("bidlowmessage",views.bidlowmessage),
+    path("bidsuccess",views.bidsuccess),
+    path("login",views.login),
+    path("signup",views.signup),
+    path("aboutus",views.viewAboutUs),
+    path("contactus",views.viewContact),
+    path("help",views.viewHelp),
+    path("logout",views.logout),
+    path("viewbiddingsSeller",views.viewBiddingsSeller),
+    path("check",views.checktime),
+]

@@ -1,0 +1,70 @@
+{% extends 'dashboard.html' %}
+{%block content %}
+
+<title>Dashboard for displaying created arts</title>
+
+<div class="d-flex justify-content-center">
+    <div class="col-lg-8 col-sm-10 col-12" id="dashboard">
+        <div class="col-lg-6 col-sm-6 col-6 active" id="myarts" >
+            <a href="/display_art_seller" class="">My arts</a>
+        </div>
+        <div class="col-lg-6 col-sm-6 col-6" id="biddings" >
+            <a href="/viewbiddingsSeller">Biddings</a>
+        </div>
+    </div>
+</div>
+
+<div class="container col-lg-10 table-responsive" id="displayarts">
+<!--    table displaying the arts for seller admin-->
+    <h1 style="text-align:center;font-family: 'Balsamiq Sans', cursive;">Arts that you created</h1>
+<!--    form to add new art-->
+    <form action="create_art" method="POST" class="d-flex justify-content-end ">
+        {% csrf_token %}
+        <input type="submit" value="Add Art" class="btn btn-success col-lg-2">
+
+    </form>
+<!--    table displaying added arts-->
+    <table border="5" class="table  table-bordered my-3 mx-2 col-lg-12">
+    <thead class="thead thead-dark">
+    <tr>
+        <th>S.N</th>
+        <th>Art Name</th>
+        <th>Description </th>
+        <th>Price</th>
+        <th>Image </th>
+        <th>Bid Start Date </th>
+        <th>Bid End Date </th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    {% for a in product %}
+    <tr>
+        <td>{{a.product_id}}</td>
+        <td>{{a.product_name}}</td>
+        <td>{{a.product_description}}</td>
+        <td>{{a.minimum_price}}</td>
+
+        <td>
+            {% load static%}
+            <img src="{%static '/Images/'%}{{a.image}}" width="200" height="200">
+        </td>
+
+        <td>{{a.bidStartDate}}</td>
+        <td>{{a.bidEndDate}}</td>
+
+
+    <th>
+        <a href="update/{{a.product_id}}">Edit</a>
+    </th>
+
+    <th>
+        <a href="delete/{{a.product_id}}">Delete</a>
+    </th>
+    </tr>
+    {% endfor%}
+</table>
+</div>
+
+
+{% endblock  %}

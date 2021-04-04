@@ -1,0 +1,48 @@
+{%extends 'layoutBidder.html'%}
+{%block content%}
+{%load static%}
+<div class="container1 col-lg-12 col-sm-12 col-md-12 col-12 d-flex justify-content-center" style="margin-top:100px">
+     <div class="col-lg-8 col-md-8 col-sm-10 col-12 my-4 " id="container" >
+             <h5 style="text-align: center;margin-top: 30px;">Register to bid</h5>
+    <div class="d-flex justify-content-center">
+
+<!--         form to bid-->
+         <form action="/create_buyer_registration" method="POST" class="form-group  my-5 col-lg-8 col-sm-12">
+             {%csrf_token%}
+
+             <div style="text-align:center;">
+                 <Label class="lead my-2 mx-2">User Name:</Label><br>
+                 <input class="form-control  " name="username" id="username" type="text">
+                 <div ><span class="error"> </span></div>
+
+                <label class="lead my-2 mx-2">First Name:</label><br>
+                 <input class="form-control" name="firstname" id="firstname" type="text">
+                 <div ><span class="error"> </span></div>
+
+                <label class="lead my-2 mx-2">Last Name:</label><br>
+                 <input class="form-control" name="lastname" id="lastname" type="text">
+                 <div ><span class="error"> </span></div>
+
+                 <label class="lead my-2 mx-2">Email:</label><br>
+                 <input class="form-control" name="email" id="email" type="email">
+                 <div ><span class="error"> </span></div>
+
+                <label class="lead my-2 mx-2">Password:</label><br>
+                 <input class="form-control" name="password" id="password" type="password">
+                 <div ><span class="error"> </span></div>
+
+                <label class="lead my-2 mx-2"> Confirm Password:</label><br>
+                 <input class="form-control" name="repassword" id="repassword" type="password">
+                 <div ><span class="error"> </span></div>
+                 {%csrf_token%}
+             <input class="btn btn-primary my-2 col-lg-5" type="submit" value="Register" id="submit">
+
+             </div>
+         </form>
+    </div>
+<!--         form to submit the bid-->
+
+</div>
+<script src="{% static 'registration.js' %}"></script>
+
+{%endblock%}

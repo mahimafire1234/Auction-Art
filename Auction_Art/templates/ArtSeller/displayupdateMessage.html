@@ -1,0 +1,13 @@
+{%extends 'dashboard.html'%}
+{%block content%}
+{%load static%}
+<div class="container1 col-lg-12 col-sm-12 col-md-12 col-12 d-flex justify-content-center" style="margin-top:100px">
+     <div class="col-lg-7 col-md-8 col-sm-10 col-12 my-4" id="container" style="padding:30px;text-align:center;" >
+         <h4>Your art has been updated.</h4>
+         <form action="display_art_seller" method="POST">
+             {%csrf_token%}
+             <input type="submit" value="OK" class="btn btn-primary col-lg-4">
+         </form>
+     </div>
+</div>
+{%endblock%}
